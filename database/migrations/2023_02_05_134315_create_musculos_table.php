@@ -16,10 +16,21 @@ return new class extends Migration
         Schema::create('musculos', function (Blueprint $table) {
             $table->id();
             
-            $table->string('musculo');
-            $table->string('imagen')->nullable();
+            $table->foreign('nombre_musculos_id')->references('id')->on('nombre_musculos')->onDelete('cascade');
+            $table->unsignedBigInteger('nombre_musculos_id');
+            
             $table->enum('genero',['Hombre', 'Mujer'])->default('Hombre');
             $table->enum('lado_cuerpo',['Frente', 'Dorso', 'Ambos'])->default('Frente');
+
+            $table->string('titulo');
+            $table->string('descripcion')->nullable();
+            $table->string('musculos_implicados')->nullable();
+            $table->text('realizacion')->nullable();
+            $table->text('comentarios')->nullable();
+            $table->text('slug');
+
+            $table->text('video')->nullable();
+            $table->text('imagen')->nullable();
 
             $table->timestamps();
         });

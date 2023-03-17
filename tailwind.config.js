@@ -9,15 +9,14 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
 
-    container:{
-        center: true,
-    },
-
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+        },
+        container:{
+            center: true,
         },
     },
 

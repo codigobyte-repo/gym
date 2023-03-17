@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BodyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+/* Route::get('body/{genero}/{lado}/{musculo}', [BodyController::class])->name('body'); */
+Route::get('body/{genero}/{lado}/{musculo}', [BodyController::class, 'index'])->name('body');
